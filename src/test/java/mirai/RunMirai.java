@@ -1,5 +1,6 @@
 package mirai;
 
+import cn.maoookai.dami.*;
 import kotlinx.coroutines.BuildersKt;
 import kotlinx.coroutines.GlobalScope;
 import net.mamoe.mirai.console.command.CommandManager;
@@ -13,6 +14,8 @@ public class RunMirai {
         // 默认在 /test 目录下运行
 
         MiraiConsolePureLoader.load(args[0], args[1]); // 启动 console
+
+        Main main = new Main();
 
         // 阻止主线程退出
         BuildersKt.runBlocking(GlobalScope.INSTANCE.getCoroutineContext(), (coroutineScope, continuation) -> CommandManager.INSTANCE.join(continuation));
